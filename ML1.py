@@ -52,16 +52,49 @@ names = ['sepal-length','sepal-width','petal-length','petal-width','class']
 dataset = pandas.read_csv(url1, names=names)
 print('Dataset is initialised, Done!')
 
-#shape
-print(dataset.shape)
+# shape
+def shaper():
+    print(dataset.shape)
 
 # head
-print(dataset.head(20))
+def header():
+    print(dataset.head(20))
 
-#Description of out datasets group by their attributes
-#This includes the count, mean, the min and max values as well as some percentiles.
-print(dataset.describe())
+# Description of out datasets group by their attributes
+# This includes the count, mean, the min and max values as well as some percentiles.
+def describer():
+    print(dataset.describe())
 
-#Class Description
-print(dataset.groupby('class').size())
+# Class Description
+def descriptioner():
+    print(dataset.groupby('class').size())
 
+# Unvariat Plot
+# box and whisker plots
+def boxploter():
+    dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+    plt.show()
+
+# Creating Histogram
+def histogramer():
+    dataset.hist()
+    plt.show()
+
+# Creating Multivariate plot
+def multivariater():
+    scatter_matrix(dataset)
+    plt.show()
+
+#Selection will be go through this code
+print("Enter your choise : ",end="")
+val = input()
+if val == "1" :
+    shaper();header(); describer();  descriptioner() 
+elif val == "2":
+    boxploter()
+elif val == "3":
+    histogramer()
+elif val == "4":
+    multivariater()
+else :
+    print("enter daf")
